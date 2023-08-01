@@ -1,16 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/28 14:44:56 by wprintes          #+#    #+#              #
-#    Updated: 2023/07/28 14:44:58 by wprintes         ###   ########.fr        #
+#    Created: 2023/07/28 19:12:14 by wprintes          #+#    #+#              #
+#    Updated: 2023/07/28 20:49:32 by wprintes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# GENERAL OPTIONS
+#GENERAL OPTIONS
 # C Compiler
 CC        :=    c++
 # Compiler flags
@@ -21,16 +21,16 @@ RM        :=    rm -rf
 
 # PROGRAM
 # Program name
-NAME        := megaphone
+NAME        := phonebook
 
 # Headers
 HEADER_DIR    :=    .
-HEADER        :=    
+HEADER        :=    Phonebook.hpp Contact.hpp
 H_INCLUDE    :=    $(addprefix -I, $(HEADER_DIR))
 
 # Source
 SRC_DIR        :=    .
-SRC            :=    megaphone.cpp
+SRC            :=    Phonebook.cpp Contact.cpp main.cpp
 
 # Object
 OBJ_DIR        :=    obj
