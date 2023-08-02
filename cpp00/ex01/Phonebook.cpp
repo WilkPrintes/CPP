@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 14:45:26 by wprintes          #+#    #+#             */
-/*   Updated: 2023/08/01 16:10:09 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:22:38 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ void Phonebook::search(void)
     int index = -1;
     int i = 0;
 
+    if (this->_contacts[i].getFirstName() == ""){
+        std::cout << "No Contacts" << std::endl;
+        return ;
+    }
     std::cout << std::right << std::setw(10) << "Index"
               << "|";
     std::cout << std::right << std::setw(10) << "First Name"
