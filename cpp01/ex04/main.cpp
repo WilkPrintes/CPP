@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 22:44:36 by wprintes          #+#    #+#             */
-/*   Updated: 2023/08/05 00:35:11 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/08/05 11:15:34 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void replace(std::ifstream &file, std::string s1, std::string s2, std::string fi
 void openFile(std::string fileName, std::string s1, std::string s2)
 {
     std::ifstream file(fileName.c_str());
+    
     if (!file.is_open())
     {
         std::cout << fileName << " not found" << std::endl;

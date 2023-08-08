@@ -6,11 +6,13 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:55:46 by wprintes          #+#    #+#             */
-/*   Updated: 2023/08/02 16:29:35 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:31:57 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include <iostream>
 
 class Zombie
 {
@@ -24,3 +26,5 @@ public:
 };
 
 Zombie *zombieHorde(int N, std::string name);
+
+#endif
