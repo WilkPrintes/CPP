@@ -1,23 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/10 08:51:35 by wprintes          #+#    #+#             */
+/*   Updated: 2023/10/10 08:59:19 by wprintes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(0), _name("")
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _hitPoints(10), _energyPoints(10), _attackDamage(0), _name(name)
 {
-    std::cout << "\033[1m" << "\033[94m" << "Constructor for " << name <<  " called" << "\033[0m" << std::endl;
+    std::cout << "\033[1m" << "\033[94m" << "ClapTrap constructor for " << name <<  " called" << "\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) : _hitPoints(10), _energyPoints(10), _attackDamage(0), _name(src.getName())
 {
-    std::cout << "Copy constructor for " << this->getName() << std::endl;
+    std::cout << "Copy constructor for ClapTrap " << this->getName() << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << "Destructor for " << this->getName() << " called" << std::endl;
+    std::cout << "ClapTrap Destructor for " << this->getName() << " called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -45,7 +57,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     this->setHitPoints(this->getHitPoints() - amount);
     if (this->getHitPoints() <= 0)
     {
-        std::cout << "ClapTrap " << this->getName() << " go to the Americanas X_X" << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " is cosplaying satoru gojo (he died) X_X" << std::endl;
     }else {
     std::cout << this->getHitPoints() << " hit points remains" << std::endl;
     }

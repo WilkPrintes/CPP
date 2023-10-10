@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 22:53:48 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/09 22:50:22 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 00:51:30 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 {
 	if (this == &rhs)
 		return *this;
-        
 	this->setName(rhs.getName());
 	this->setHitPoints(rhs.getHitPoints());
 	this->setEnergyPoints(rhs.getEnergyPoints());
