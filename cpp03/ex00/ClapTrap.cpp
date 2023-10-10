@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 08:51:35 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/10 08:58:53 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:03:00 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     this->setHitPoints(this->getHitPoints() - amount);
     if (this->getHitPoints() <= 0)
     {
-        std::cout << "ClapTrap " << this->getName() << " is cosplaying satoru gojo (he died) X_X" << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " received a fatal blow X_X" << std::endl;
     }else {
     std::cout << this->getHitPoints() << " hit points remains" << std::endl;
     }
