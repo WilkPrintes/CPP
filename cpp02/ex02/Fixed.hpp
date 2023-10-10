@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 09:30:21 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/04 13:31:58 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 00:33:20 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
     ~Fixed(void);
 
     int getRawBits(void) const;
-    void setRawBits(int rawBits);
+    void setRawBits(int const rawBits);
 
     float toFloat(void) const;
     int toInt(void) const;

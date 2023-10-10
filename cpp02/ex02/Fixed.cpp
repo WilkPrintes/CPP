@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 10:39:41 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/04 13:29:53 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 00:33:26 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed(Fixed const &src) { this->_rawBits = src.getRawBits(); }
 Fixed::~Fixed(void){ }
 
 int Fixed::getRawBits(void) const { return (this->_rawBits); }
-void Fixed::setRawBits(int rawBits){ this->_rawBits = rawBits; }
+void Fixed::setRawBits(int const rawBits){ this->_rawBits = rawBits; }
 
 float Fixed::toFloat(void) const { return ( ( this->getRawBits() / float(1 << this->_fractBits))); }
 int Fixed::toInt(void) const { return (this->getRawBits() / (1 << this->_fractBits)); }
