@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:43:34 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/09 23:47:23 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 00:31:51 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
     int         _hitPoints;
     int         _energyPoints;
     int         _attackDamage;

@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 10:48:15 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/03 12:51:34 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 00:36:53 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,9 @@ int main(void){
     std::cout << "b is " << b.toInt() << " as integer" << std::endl; 
     std::cout << "c is " << c.toInt() << " as integer" << std::endl; 
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+    std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+    std::cout << "b is " << b.toFloat() << " as float" << std::endl; 
+    std::cout << "c is " << c.toFloat() << " as float" << std::endl; 
+    std::cout << "d is " << d.toFloat() << " as float" << std::endl;
 }
