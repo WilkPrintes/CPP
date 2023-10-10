@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 23:00:52 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/09 23:39:43 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:05:20 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void FragTrap::attack(const std::string &target)
 }
 
 void FragTrap::highFivesGuys(void){
+    if (this->getHitPoints() <= 0){
+        std::cout << "FragTrap " << this->getName() << " is dead X_X" << std::endl;
+        return ;
+    }
     std::cout << "FragTrap " << this->getName() << ": *High Five"   << std::endl;
 
 }
