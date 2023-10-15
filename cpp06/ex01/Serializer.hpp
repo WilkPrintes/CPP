@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:17:33 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 00:17:33 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 09:31:48 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ private:
 	~Serializer(void);
 
 	Serializer&	operator=(Serializer const & rhs);
-
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:27:44 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/14 23:53:25 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 09:22:54 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class ScalarConverter
 {
 private:
     static char _char;
-    static int _int;
+    static long int _int;
     static float _float;
     static double _double;
     static std::string pseudoLiterals[6];

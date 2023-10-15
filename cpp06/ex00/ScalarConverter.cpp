@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 00:03:57 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 09:23:22 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <iomanip>
 
 char ScalarConverter::_char = 0;
-int ScalarConverter::_int = 0;
+long int ScalarConverter::_int = 0;
 float ScalarConverter::_float = 0;
 double ScalarConverter::_double = 0;
 std::string ScalarConverter::pseudoLiterals[6] = {
@@ -102,7 +102,7 @@ bool ScalarConverter::isDouble(const std::string s)
 
 void ScalarConverter::setInt(std::string s)
 {
-    _int = atoi(s.c_str());
+    _int = atoi(s.c_str()); 
     _char = static_cast<char>(_int);
     _float = static_cast<float>(_int);
     _double = static_cast<double>(_int);
@@ -142,9 +142,10 @@ void ScalarConverter::getType(std::string str)
         setFloat(str);
     else if (ScalarConverter::isDouble(str))
         setDouble(str);
-    else if (ScalarConverter::isPseudo(str)){
+    else if (ScalarConverter::isPseudo(str))
+    {
         printPseudo();
-        return ;
+        return;
     }
     else
     {
@@ -163,7 +164,8 @@ void ScalarConverter::printInt(void)
         std::cout << "int: " << _int << std::endl;
 }
 
-void ScalarConverter::printPseudo(void){
+void ScalarConverter::printPseudo(void)
+{
     std::cout << "char: imposible" << std::endl;
     std::cout << "int: imposible" << std::endl;
     std::cout << "float: nanf" << std::endl;
@@ -172,7 +174,7 @@ void ScalarConverter::printPseudo(void){
 
 void ScalarConverter::printChar(void)
 {
-    if (_char < 0 || _char >= CHAR_MAX)
+    if (_int < CHAR_MIN || _int >= CHAR_MAX)
         std::cout << "char: Imposible" << std::endl;
     else if (!isprint(_char))
         std::cout << "char: Non displayable" << std::endl;
@@ -180,14 +182,16 @@ void ScalarConverter::printChar(void)
         std::cout << "char: " << _char << std::endl;
 }
 
-void ScalarConverter::printFloat(void){
+void ScalarConverter::printFloat(void)
+{
     std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float: " << _float << "f" << std::endl;
+    std::cout << "float: " << _float << "f" << std::endl;
 }
 
-void ScalarConverter::printDouble(void) {
-		std::cout << std::fixed << std::setprecision(1);
-		std::cout << "double: " << _double << std::endl;
+void ScalarConverter::printDouble(void)
+{
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "double: " << _double << std::endl;
 }
 
 void ScalarConverter::printValues(void)
@@ -196,7 +200,6 @@ void ScalarConverter::printValues(void)
     printInt();
     printFloat();
     printDouble();
-
 }
 
 void ScalarConverter::convert(std::string const str)
