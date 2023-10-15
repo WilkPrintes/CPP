@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 16:00:26 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 18:00:29 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,11 @@ void ScalarConverter::getType(std::string str)
 
 void ScalarConverter::printInt(void)
 {
-    if (_int < INT_MIN || _int > INT_MAX || _type >= 0)
+    if (_type == 0 || _type == 1)
+        std::cout << "int: -inf" <<std::endl;
+    else if (_type == 2 || _type == 3)
+        std::cout << "int: +inf" <<std::endl;
+    else if (_int < INT_MIN || _int > INT_MAX || _type >= 0)
         std::cout << "int: Imposible" << std::endl;
     else
         std::cout << "int: " << _int << std::endl;
@@ -185,8 +189,12 @@ void ScalarConverter::printChar(void)
 void ScalarConverter::printFloat(void)
 {
     std::cout << "Float: ";
-    if (_type > 3)
-        std::cout << "nanf" << std::endl;
+    if (_type == 0 || _type == 1)
+        std::cout << "-inff" <<std::endl;
+    else if (_type == 2 || _type == 3)
+        std::cout << "+inff" <<std::endl;
+    else if (_type > 3)
+        std::cout << "nanff" << std::endl;
     else if (_type >= 0)
         std::cout << "Imposible" << std::endl;
     else{
