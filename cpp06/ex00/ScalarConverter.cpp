@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 20:44:13 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:46:28 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,8 +175,6 @@ void ScalarConverter::printInt(void)
 {
     if (_type == 0 || _type == 1)
         std::cout << "int: -inf" <<std::endl;
-    else if (_type == 2 || _type == 3)
-        std::cout << "int: +inf" <<std::endl;
     else if (_rangerChecker < INT_MIN || _rangerChecker > INT_MAX || _type >= 0)
         std::cout << "int: Imposible" << std::endl;
     else
