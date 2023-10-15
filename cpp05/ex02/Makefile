@@ -6,7 +6,7 @@
 #    By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 09:30:09 by wprintes          #+#    #+#              #
-#    Updated: 2023/10/14 17:45:01 by wprintes         ###   ########.fr        #
+#    Updated: 2023/10/14 21:06:05 by wprintes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ vg:
 
 # Clean: removes objects' directory
 clean:
-	$(RM) $(OBJ_DIR) *.replace *_shrubbery
+	$(RM) $(OBJ_DIR) *_shrubbery
 
 # Full clean: removes objects' directory and generated programs
 fclean: clean

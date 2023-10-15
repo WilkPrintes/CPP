@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:16:45 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/14 15:14:45 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:04:41 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         return 1;
     }
 
-    // Crie a árvore usando caracteres ASCII e escreva no arquivo
     outputFile << "               ,@@@@@@@," << std::endl;
     outputFile << "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl;
     outputFile << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl;

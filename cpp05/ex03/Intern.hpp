@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 00:57:03 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/14 16:43:23 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:01:34 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,22 @@
 
 class Intern
 {
-	private:
+private:
+	AForm *_shrubbery(const std::string target) const;
+	AForm *_robotomy(const std::string target) const;
+	AForm *_presidential(const std::string target) const;
 
+public:
+	Intern(void);
+	~Intern(void);
+
+	AForm *makeForm(const std::string name, const std::string target) const;
+
+	class InvalidFormException : public std::exception
+	{
 	public:
-		Intern(void);
-		~Intern(void);
-
-		AForm *makeForm(const std::string name, const std::string target) const;
-
-		class InvalidFormException: public std::exception{
-			public:
-				const char *what() const throw(); 	
-		};
+		const char *what() const throw();
+	};
 };
 
-#endif 
+#endif
