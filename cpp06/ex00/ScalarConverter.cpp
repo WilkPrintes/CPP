@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 18:00:29 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:44:13 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ long int ScalarConverter::_int = 0;
 float ScalarConverter::_float = 0;
 double ScalarConverter::_double = 0;
 int ScalarConverter::_type = -1;
+double ScalarConverter::_rangerChecker = 0;
+
 std::string ScalarConverter::_pseudoLiterals[6] = {
     "-inff",
     "-inf",
@@ -56,6 +58,8 @@ bool ScalarConverter::isNumber(const std::string s)
 {
     std::string::const_iterator it = s.begin();
 
+    if (*it == '-' || *it == '+')
+        it++;
     while (it != s.end() && std::isdigit(*it))
         ++it;
     return !s.empty() && it == s.end();
@@ -63,8 +67,11 @@ bool ScalarConverter::isNumber(const std::string s)
 bool ScalarConverter::isFloat(const std::string s)
 {
     int point = 0;
+    size_t i = 0;
 
-    for (size_t i = 0; i < s.length(); i++)
+    if (s[0] == '-' || s[0] == '+')
+        i++;
+    while (i < s.length())
     {
         if (!std::isdigit(s[i]))
         {
@@ -73,6 +80,7 @@ bool ScalarConverter::isFloat(const std::string s)
             else
                 return (false);
         }
+        i++;
     }
     if (point == 0 || point > 1)
         return (false);
@@ -87,7 +95,8 @@ bool ScalarConverter::isDouble(const std::string s)
 
     if (s[s.length() - 1] != 'f')
         return (false);
-
+    if (*it == '-' || *it == '+')
+        it++;
     while (it != s.end() - 1)
     {
         if (!std::isdigit(*it))
@@ -106,7 +115,8 @@ bool ScalarConverter::isDouble(const std::string s)
 
 void ScalarConverter::setInt(std::string s)
 {
-    _int = atoi(s.c_str()); 
+    _rangerChecker = strtof(s.c_str(), NULL);
+    _int = atoi(s.c_str());
     _char = static_cast<char>(_int);
     _float = static_cast<float>(_int);
     _double = static_cast<double>(_int);
@@ -114,6 +124,7 @@ void ScalarConverter::setInt(std::string s)
 
 void ScalarConverter::setChar(std::string s)
 {
+    _rangerChecker = strtof(s.c_str(), NULL);
     _int = static_cast<int>(s[0]);
     _char = static_cast<char>(_int);
     _float = static_cast<float>(_int);
@@ -122,6 +133,7 @@ void ScalarConverter::setChar(std::string s)
 
 void ScalarConverter::setDouble(std::string s)
 {
+    _rangerChecker = strtof(s.c_str(), NULL);
     _double = strtod(s.c_str(), NULL);
     _char = static_cast<char>(_double);
     _int = static_cast<float>(_double);
@@ -130,6 +142,7 @@ void ScalarConverter::setDouble(std::string s)
 
 void ScalarConverter::setFloat(std::string s)
 {
+    _rangerChecker = strtof(s.c_str(), NULL);
     _float = strtof(s.c_str(), NULL);
     _char = static_cast<char>(_float);
     _int = static_cast<float>(_float);
@@ -148,14 +161,13 @@ void ScalarConverter::getType(std::string str)
         setDouble(str);
     else if (ScalarConverter::isPseudo(str))
     {
-        printPseudo();
+        ;
     }
     else
     {
         std::cout << "invalid arg type" << std::endl;
         return;
     }
-
     printValues();
 }
 
@@ -165,20 +177,15 @@ void ScalarConverter::printInt(void)
         std::cout << "int: -inf" <<std::endl;
     else if (_type == 2 || _type == 3)
         std::cout << "int: +inf" <<std::endl;
-    else if (_int < INT_MIN || _int > INT_MAX || _type >= 0)
+    else if (_rangerChecker < INT_MIN || _rangerChecker > INT_MAX || _type >= 0)
         std::cout << "int: Imposible" << std::endl;
     else
         std::cout << "int: " << _int << std::endl;
 }
 
-void ScalarConverter::printPseudo(void)
-{
-   ;
-}
-
 void ScalarConverter::printChar(void)
 {
-    if (_int < CHAR_MIN || _int >= CHAR_MAX || _type >= 0)
+    if (_rangerChecker < CHAR_MIN || _rangerChecker >= CHAR_MAX || _type >= 0)
         std::cout << "char: Imposible" << std::endl;
     else if (!isprint(_char))
         std::cout << "char: Non displayable" << std::endl;
@@ -194,7 +201,7 @@ void ScalarConverter::printFloat(void)
     else if (_type == 2 || _type == 3)
         std::cout << "+inff" <<std::endl;
     else if (_type > 3)
-        std::cout << "nanff" << std::endl;
+        std::cout << "nanf" << std::endl;
     else if (_type >= 0)
         std::cout << "Imposible" << std::endl;
     else{
