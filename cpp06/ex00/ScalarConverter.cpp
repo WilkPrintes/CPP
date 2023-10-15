@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 09:23:22 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:00:26 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ char ScalarConverter::_char = 0;
 long int ScalarConverter::_int = 0;
 float ScalarConverter::_float = 0;
 double ScalarConverter::_double = 0;
-std::string ScalarConverter::pseudoLiterals[6] = {
+int ScalarConverter::_type = -1;
+std::string ScalarConverter::_pseudoLiterals[6] = {
     "-inff",
-    "+inff",
-    "nanf",
-    "+inf",
     "-inf",
-    "nan"};
+    "+inff",
+    "+inf",
+    "nanf",
+    "nan"
+};
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -42,8 +44,10 @@ bool ScalarConverter::isPseudo(std::string str)
 {
     for (int i = 0; i < 6; i++)
     {
-        if (pseudoLiterals[i].compare(str) == 0)
+        if (_pseudoLiterals[i].compare(str) == 0){
+            _type = i;
             return (true);
+        }
     }
     return (false);
 }
@@ -145,7 +149,6 @@ void ScalarConverter::getType(std::string str)
     else if (ScalarConverter::isPseudo(str))
     {
         printPseudo();
-        return;
     }
     else
     {
@@ -158,23 +161,20 @@ void ScalarConverter::getType(std::string str)
 
 void ScalarConverter::printInt(void)
 {
-    if (_int < INT_MIN || _int > INT_MAX)
-        std::cout << "int: imposible" << std::endl;
+    if (_int < INT_MIN || _int > INT_MAX || _type >= 0)
+        std::cout << "int: Imposible" << std::endl;
     else
         std::cout << "int: " << _int << std::endl;
 }
 
 void ScalarConverter::printPseudo(void)
 {
-    std::cout << "char: imposible" << std::endl;
-    std::cout << "int: imposible" << std::endl;
-    std::cout << "float: nanf" << std::endl;
-    std::cout << "double: nan" << std::endl;
+   ;
 }
 
 void ScalarConverter::printChar(void)
 {
-    if (_int < CHAR_MIN || _int >= CHAR_MAX)
+    if (_int < CHAR_MIN || _int >= CHAR_MAX || _type >= 0)
         std::cout << "char: Imposible" << std::endl;
     else if (!isprint(_char))
         std::cout << "char: Non displayable" << std::endl;
@@ -184,14 +184,30 @@ void ScalarConverter::printChar(void)
 
 void ScalarConverter::printFloat(void)
 {
-    std::cout << std::fixed << std::setprecision(1);
-    std::cout << "float: " << _float << "f" << std::endl;
+    std::cout << "Float: ";
+    if (_type > 3)
+        std::cout << "nanf" << std::endl;
+    else if (_type >= 0)
+        std::cout << "Imposible" << std::endl;
+    else{
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout <<  _float << "f" << std::endl;
+    }
 }
 
 void ScalarConverter::printDouble(void)
 {
-    std::cout << std::fixed << std::setprecision(1);
-    std::cout << "double: " << _double << std::endl;
+    std::cout << "Double: ";
+    if (_type == 0 || _type == 1)
+        std::cout << "-inf" <<std::endl;
+    else if (_type == 2 || _type == 3)
+        std::cout << "+inf" <<std::endl;
+    else if (_type > 3)
+        std::cout << "nan" <<std::endl;
+    else {
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << _double << std::endl;
+    }
 }
 
 void ScalarConverter::printValues(void)

@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:27:44 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 09:22:54 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:34:38 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ private:
     static long int _int;
     static float _float;
     static double _double;
-    static std::string pseudoLiterals[6];
+    static std::string _pseudoLiterals[6];
+    static int _type;
 
     ScalarConverter(void);
     ScalarConverter(ScalarConverter const &src);
