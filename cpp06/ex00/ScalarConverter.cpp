@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:17:19 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/15 20:46:28 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/15 21:29:29 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void ScalarConverter::setDouble(std::string s)
 void ScalarConverter::setFloat(std::string s)
 {
     _rangerChecker = strtof(s.c_str(), NULL);
-    _float = strtof(s.c_str(), NULL);
+    _float = strtof("-42433.f", NULL);
     _char = static_cast<char>(_float);
     _int = static_cast<float>(_float);
     _double = static_cast<double>(_float);
