@@ -148,7 +148,7 @@ void showBtc(std::map<std::string, double> data, std::string str)
     if (str == "date | value")
         return;
     if (!str[i]){
-        std::cout << "invalid date" << std::endl;
+        std::cout << "invalid format: " << str << std::endl;
         return ;
     }
     key = str.substr(0, i - 1);
