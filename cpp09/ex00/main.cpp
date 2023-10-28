@@ -61,18 +61,18 @@ bool validDate(std::map<std::string, std::string> data)
     int year = atoi(data["year"].c_str());
     int month = atoi(data["month"].c_str());
     int day = atoi(data["day"].c_str());
-
+    std::string error = data["year"] + "-" + data["month"] + "-" + data["day"]; 
     time_t now = time(0);
     tm *ltm = localtime(&now);
 
     if (day > 31 || day < 1)
     {
-        std::cout << "invalid day" << std::endl;
+        std::cout << "invalid day: " << error << std::endl;
         return (false);
     }
     else if (month > 12 || month < 1)
     {
-        std::cout << "invalid month" << std::endl;
+        std::cout << "invalid month: " << error << std::endl;
         return (false);
     }
     else if (year < 2008 && month < 10 && day < 31)
@@ -89,13 +89,13 @@ bool validDate(std::map<std::string, std::string> data)
     {
         if (month == 2 && day == 29)
         {
-            std::cout << "invalid date: not a Leap Year" << std::endl;
+            std::cout << "invalid date: not a Leap Year : " << error << std::endl;
             return (false);
         }
     }
     else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31)
     {
-        std::cout << "invalid date: month with 30 days" << std::endl;
+        std::cout << "invalid date: month with 30 days : " << error << std::endl;
         return (false);
     }
     return (true);
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
         std::cout << "problem in open input file" << std::endl;
         return (-1);
     }
-    if (inputFile.tellg() == 0){
+    if (inputFile.peek() == std::ifstream::traits_type::eof()){
         std::cout << "input file in empty" << std::endl;
         return (-1);
     }
