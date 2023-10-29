@@ -6,7 +6,7 @@
 #    By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 09:30:09 by wprintes          #+#    #+#              #
-#    Updated: 2023/10/25 19:16:44 by wprintes         ###   ########.fr        #
+#    Updated: 2023/10/28 21:46:18 by wprintes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ H_INCLUDE		:=    $(addprefix -I, $(HEADER_DIR))
 
 # Source
 SRC_DIR        :=    .
-SRC            :=    main.cpp BitcoinExchange.cpp
+SRC            :=    main.cpp
 
 # Object
 OBJ_DIR        :=    obj
