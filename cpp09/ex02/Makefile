@@ -6,7 +6,7 @@
 #    By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 09:30:09 by wprintes          #+#    #+#              #
-#    Updated: 2023/10/29 18:45:51 by wprintes         ###   ########.fr        #
+#    Updated: 2023/11/12 15:17:59 by wprintes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,16 @@ RM        :=    rm -rf
 
 # PROGRAM
 # Program name
-NAME        :=	 btc
+NAME        :=	 PmergeMe
 
 # Headers
 HEADER_DIR		:=    .
-HEADER			:=    BitcoinExchange.hpp
+HEADER			:=    PmergeMe.hpp
 H_INCLUDE		:=    $(addprefix -I, $(HEADER_DIR))
 
 # Source
 SRC_DIR        :=    .
-SRC            :=    main.cpp BitcoinExchange.cpp
+SRC            :=    main.cpp PmergeMe.cpp
 
 # Object
 OBJ_DIR        :=    obj

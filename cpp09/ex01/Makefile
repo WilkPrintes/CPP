@@ -6,7 +6,7 @@
 #    By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 09:30:09 by wprintes          #+#    #+#              #
-#    Updated: 2023/10/29 18:45:51 by wprintes         ###   ########.fr        #
+#    Updated: 2023/10/29 20:40:53 by wprintes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,16 @@ RM        :=    rm -rf
 
 # PROGRAM
 # Program name
-NAME        :=	 btc
+NAME        :=	 RPN
 
 # Headers
 HEADER_DIR		:=    .
-HEADER			:=    BitcoinExchange.hpp
+HEADER			:=    RPN.hpp
 H_INCLUDE		:=    $(addprefix -I, $(HEADER_DIR))
 
 # Source
 SRC_DIR        :=    .
-SRC            :=    main.cpp BitcoinExchange.cpp
+SRC            :=    main.cpp RPN.cpp
 
 # Object
 OBJ_DIR        :=    obj
@@ -46,7 +46,7 @@ SRC_DIR        :=    $(dir $(SRC))
 SRC            :=    $(notdir $(SRC))
 OBJ            :=    $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 HEADER        :=    $(shell find . -name '*.hpp' -type f)
-H_INCLUDE    :=    $(sort $(addprefix -I, $(dir $(HEADER))))
+H_INCLUDE   :=    $(sort $(addprefix -I, $(dir $(HEADER))))
 INCLUDE        :=    $(H_INCLUDE)
 endif
 

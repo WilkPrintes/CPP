@@ -6,7 +6,7 @@
 /*   By: wprintes <wprintes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 10:15:41 by wprintes          #+#    #+#             */
-/*   Updated: 2023/10/25 09:56:21 by wprintes         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:53:41 by wprintes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int main()
         if (lst_it != lst_ite)
             std::cout << "they are not similar" << std::endl;
 
-        std::cout << "===>Reverse Iterator " << std::endl;
+        std::cout << "=== Reverse Iterator ===" << std::endl;
         MutantStack<int>::reverse_iterator msr_it = ms.rbegin();
         MutantStack<int>::reverse_iterator msr_ite = ms.rend();
         std::list<int>::reverse_iterator lstr_it = lst.rbegin();
